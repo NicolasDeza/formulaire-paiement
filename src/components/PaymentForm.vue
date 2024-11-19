@@ -1,4 +1,5 @@
 <script setup>
+import visaLogo from "@/assets/logos/visa.png";
 import { ref, computed } from "vue";
 
 // Variables réactives pour les données de la carte
@@ -62,6 +63,7 @@ const addCard = () => {
           placeholder="Month"
           maxlength="2"
         />
+        <!-- Champ expiration de l'année -->
         <input
           v-model="expiresYear"
           type="text"
@@ -69,7 +71,7 @@ const addCard = () => {
           placeholder="Year"
           maxlength="2"
         />
-
+        <!-- Champ code CVV -->
         <input
           v-model="cvv"
           type="text"
@@ -90,7 +92,7 @@ const addCard = () => {
 
     <!-- Visualisation de la carte -->
     <div
-      class="p-6 bg-gradient-to-r from-blue-400 to-purple-600 text-white rounded-lg shadow-md w-80 h-48"
+      class="relative p-6 bg-gradient-to-r from-blue-400 to-purple-600 text-white rounded-lg shadow-md w-80 h-48"
     >
       <div class="text-lg">
         {{ formattedCardNumber || "XXXX XXXX XXXX XXXX" }}
@@ -101,6 +103,9 @@ const addCard = () => {
       <div class="text-sm mt-4">EXPIRES</div>
       <div class="text-lg">
         {{ expiresMonth ? expiresMonth + "/" + expiresYear : "MM/YY" }}
+      </div>
+      <div class="absolute bottom-2 right-2">
+        <img :src="visaLogo" alt="Visa Logo" class="w-12 h-auto mr-5" />
       </div>
     </div>
   </div>
