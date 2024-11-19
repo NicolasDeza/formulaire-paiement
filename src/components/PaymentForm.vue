@@ -6,6 +6,7 @@ const cardNumber = ref("");
 const cardHolderName = ref("");
 const expiresMonth = ref("");
 const expiresYear = ref("");
+const cvv = ref("");
 
 // Ajout espace tous les 4 chiffres
 const formattedCardNumber = computed(() =>
@@ -67,6 +68,14 @@ const addCard = () => {
           class="w-16 p-2 mb-4 ml-2 border rounded"
           placeholder="Year"
           maxlength="2"
+        />
+
+        <input
+          v-model="cvv"
+          type="text"
+          class="w-full p-2 mb-4 border rounded"
+          placeholder="CVV"
+          maxlength="3"
         />
 
         <button
